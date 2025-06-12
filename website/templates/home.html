@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+  <h1 align="center">Transactions</h1>
+  <ul class="list-group list-group-flush" id="notes">
+    {% for transaction in user.transactions %}
+    <li class="list-group-item">
+        {{ transaction.type }}
+        {{ transaction.amount }}
+        {{ transaction.date }}
+    </li>
+    {% endfor %}
+</ul>
+<form method="POST">
+    <textarea name="type" id="type" class="form-control">Enter Type of Transaction</textarea>
+    <textarea name="amount" id="amount" class="form-control">Enter the Amount</textarea>
+    <br />
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Add Transaction</button>
+    </div>
+</form>
+{% endblock %}
